@@ -1,0 +1,156 @@
+<style>
+    .allapp{
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        row-gap: 30px;
+        column-gap: 10px;
+    }
+
+    .icon-app{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .icon-app>img{
+        width: 50px;
+    }
+
+    .icon-app>span{
+        font-size: 13px;
+    }
+
+
+</style>
+<div class="allapp animate__animated animate__slideInUp">
+    <div class="icon-app settings">
+        <img src="../public/icon_app/settings.png" alt="settings">
+        <span>Cài Đặt</span>
+    </div>
+    <div class="icon-app facebook">
+        <img src="../public/icon_app/facebook.png" alt="Facebook">
+        <span>Facebook</span>
+    </div>
+    <div class="icon-app messenger">
+        <img src="../public/icon_app/messenger.png" alt="Messenger">
+        <span>Messenger</span>
+    </div>
+    <div class="icon-app zalo">
+        <img src="../public/icon_app/letter-z.png" alt="Zalo">
+        <span>Zalo</span>
+    </div>
+    <div class="icon-app tiktok">
+        <img src="../public/icon_app/social-media.png" alt="Tiktok">
+        <span>Tiktok</span>
+    </div>
+    <div class="icon-app image">
+        <img src="../public/icon_app/gallery.png" alt="Anh">
+        <span>Ảnh</span>
+    </div>
+    <div class="icon-app video">
+        <img src="../public/icon_app/video-calling.png" alt="Video">
+        <span>Video</span>
+    </div>
+    <div class="icon-app musics">
+        <img src="../public/icon_app/itunes.png" alt="Nhac">
+        <span>Nhạc</span>
+    </div>
+    <div class="icon-app codes">
+        <img src="../public/icon_app/code.png" alt="Code">
+        <span>Code</span>
+    </div>
+    <div class="icon-app youtube">
+        <img src="../public/icon_app/youtube.png" alt="Youtube">
+        <span>Youtube</span>
+    </div>
+    <div class="icon-app">
+        <img src="../public/icon_app/twitter.png" alt="Twitter">
+        <span>Twitter</span>
+    </div>
+    <div class="icon-app chromes">
+        <img src="../public/icon_app/chrome.png" alt="Chrome">
+        <span>Chrome</span>
+    </div>
+    <div class="icon-app">
+        <img src="../public/icon_app/game-folder.png" alt="Liên quân">
+        <span>Liên quân</span>
+    </div>
+    <div class="icon-app">
+        <img src="../public/icon_app/joystick.png" alt="Pubg">
+        <span>Pubg Mobile</span>
+    </div>
+    <div class="icon-app">
+        <img src="../public/icon_app/application.png" alt="CH Play">
+        <span>CH Play</span>
+    </div>
+    <div class="icon-app">
+        <img src="../public/icon_app/camera.png" alt="Máy ảnh">
+        <span>Máy ảnh</span>
+    </div>
+    <div class="icon-app">
+        <img src="../public/icon_app/mobile.png" alt="Điện thoại">
+        <span>Điện thoại</span>
+    </div>
+    <div class="icon-app">
+        <img src="../public/icon_app/messages.png" alt="Tin nhắn">
+        <span>Tin nhắn</span>
+    </div>
+    <div class="icon-app">
+        <img src="../public/icon_app/gmail.png" alt="Gmail">
+        <span>Gmail</span>
+    </div>
+    <div class="icon-app">
+        <img src="../public/icon_app/folder.png" alt="File">
+        <span>File</span>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function() {
+        $(".settings").click(function(){
+            loadPage('../pages/setting.html');
+            changeBackground();
+        })
+        $(".facebook").click(function(){
+            loadPage('../pages/facebook.html');
+            changeBackground();
+        })
+        $(".messenger").click(function(){
+            loadPage('../pages/messenger.html');
+            changeBackground();
+        })
+        $(".zalo").click(function(){
+            loadPage('../pages/zalo.html');
+            changeBackground();
+        })
+        $(".tiktok").click(function(){
+            loadPage('../pages/tiktok.html');
+            changeBackground();
+        })
+        $(".youtube").click(function(){
+            loadPage('../pages/youtube.html');
+            changeBackground();
+        })
+        $(".video").click(function(){
+            loadPage('../pages/video.html');
+            changeBackground();
+        })
+        $(".image").click(function(){
+            loadPage('../pages/image.html');
+            changeBackground();
+        })
+        $(".musics").click(function(){
+            loadPage('../pages/music.html');
+            changeBackground();
+        })
+        $(".chromes").click(function(){
+            loadPage('../pages/chrome.html');
+            changeBackground();
+        })
+        $(".codes").click(function(){
+            loadPage('../pages/code.html');
+            changeBackground();
+        })
+    })
+</script>

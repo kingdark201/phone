@@ -1,0 +1,74 @@
+<style>
+    .facebook{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+    }
+
+    .facebook>img{
+        width: 250px;
+        position: absolute;
+        top: -140px;
+    }
+
+    .box-login{
+        background-color: rgba(224, 224, 224, 0.301);
+        margin: 0 10px;
+        padding: 10px;
+        border-radius: 10px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 340px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, .1), 0 8px 16px rgba(0, 0, 0, .1);
+    }
+
+    .box-login>input{
+        width: 100%;
+        height: 45px;
+        border-radius: 5px;
+        border: 1px solid #e3e3e3;
+        margin-bottom: 10px;
+        padding: 0 10px;
+        outline: none;
+    }
+    .login{
+        width: 100%;
+        height: 45px;
+        background-color: #0866ff;
+        border: none;
+        border-radius: 6px;
+        font-size: 20px;
+        margin: 10px 0;
+        outline: none;
+        color: #fff;
+    }
+    .signup{
+        border: none;
+        border-radius: 6px;
+        font-size: 17px;
+        background-color: #42b72a;
+        color: #fff;
+        padding: 0 16px;
+        height: 45px;
+    }
+</style>
+<div class="facebook animate__animated animate__zoomIn">
+    <img src="../public/icon_aplication/logofacebook.svg" alt="">
+    <div class="box-login">
+        <input type="text" placeholder="Email hoặc số điện thoại">
+        <input type="text" placeholder="Mật khẩu">
+        <button class="login">Đăng nhập</button>
+        <p class="text-primary">Quên mật khẩu?</p>
+        <hr>
+        <button class="signup">Tạo tài khoản mới</button>
+    </div>
+</div>
+<script>
+    $(document).ready(function () {
+        playResponsiveVoice('Lêu lêu lêu lêu lêu');
+    })
+</script>

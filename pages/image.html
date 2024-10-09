@@ -1,0 +1,199 @@
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+<style>
+    .security {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background-color: rgb(0, 0, 0);
+        padding: 10px;
+        border-radius: 20px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, .1), 0 8px 16px rgba(0, 0, 0, .1);
+    }
+
+    .screen {
+        width: 100%;
+        height: 50px;
+        margin-bottom: 10px;
+        text-align: right;
+        padding: 10px;
+        font-size: 24px;
+        background-color: #646262;
+        border-radius: 10px;
+        color: orange;
+    }
+
+    .number {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    .number button {
+        width: 60px;
+        height: 60px;
+        margin: 5px;
+        border: 0;
+        border-radius: 5px;
+        background-color: transparent;
+        font-size: 40px;
+        color: rgb(45, 3, 211);
+        outline: none;
+    }
+
+    .number button:active {
+        color: aqua;
+    }
+
+    .image {
+        width: 100%;
+        height: 90vh;
+        overflow-y: auto;
+        overflow-x: hidden;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+        margin: 40px 10px;
+        display: none;
+    }
+
+    .image::-webkit-scrollbar {
+        display: none;
+    }
+
+    .list-image {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+
+    .list-image img {
+        width: 100%;
+        height: 160px;
+        border-radius: 8px;
+        object-fit: cover;
+    }
+
+    .modal {
+        display: none;
+        position: fixed;
+        z-index: 1000;
+        padding-top: 60px;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.8);
+    }
+
+    /* Ảnh trong modal */
+    .modal-content {
+        margin: auto;
+        display: block;
+        width: 80%;
+        max-width: 700px;
+    }
+
+    /* Nút đóng */
+    .close {
+        position: absolute;
+        top: 15px;
+        right: 35px;
+        color: white;
+        font-size: 40px;
+        font-weight: bold;
+        cursor: pointer;
+    }
+</style>
+<div class="security">
+    <h5 class="text-center text-warning mb-4">Mật Khẩu Ứng Dụng</h5>
+    <div id="screen" class="screen"></div>
+    <div class="number">
+        <button onclick="enterNumber(1)"><i class="bi bi-1-circle"></i></button>
+        <button onclick="enterNumber(2)"><i class="bi bi-2-circle"></i></button>
+        <button onclick="enterNumber(3)"><i class="bi bi-3-circle"></i></button>
+        <button onclick="enterNumber(4)"><i class="bi bi-4-circle"></i></button>
+        <button onclick="enterNumber(5)"><i class="bi bi-5-circle"></i></button>
+        <button onclick="enterNumber(6)"><i class="bi bi-6-circle"></i></button>
+        <button onclick="enterNumber(7)"><i class="bi bi-7-circle"></i></button>
+        <button onclick="enterNumber(8)"><i class="bi bi-8-circle"></i></button>
+        <button onclick="enterNumber(9)"><i class="bi bi-9-circle"></i></button>
+        <button onclick="clearScreen()"><i class="bi bi-x-circle text-danger"></i></button>
+        <button onclick="enterNumber(0)"><i class="bi bi-0-circle"></i></button>
+        <button onclick="checkPassword()"><i class="bi bi-check-circle text-success"></i></button>
+    </div>
+</div>
+<div id="imageModal" class="modal animate__animated animate__zoomIn">
+    <span class="close">&times;</span>
+    <img class="modal-content" id="modalImage">
+</div>
+<div class="image">
+    <div class="list-image"></div>
+</div>
+<script>
+    var enteredPassword = "";
+    var correctPassword = "09646478540964896483";
+    function enterNumber(number) {
+        enteredPassword += number;
+        updateScreen();
+    }
+
+    function updateScreen() {
+        document.getElementById("screen").innerText = enteredPassword;
+    }
+
+    function clearScreen() {
+        enteredPassword = enteredPassword.slice(0, -1);
+        updateScreen();
+    }
+
+    function checkPassword() {
+        if (enteredPassword === correctPassword) {
+            $('.security').fadeOut();
+            $('.image').fadeIn();
+        } else {
+            $('.security').addClass('animate__animated animate__shakeX');
+            $('.screen').html('');
+            enteredPassword = "";
+            setTimeout(function () {
+                $('.security').removeClass('animate__animated animate__shakeX');
+            }, 2000);
+        }
+    }
+
+    const imageContainer = document.querySelector('.list-image');
+    const modal = document.getElementById('imageModal');
+    const modalImg = document.getElementById('modalImage');
+    const closeBtn = document.getElementsByClassName('close')[0];
+    function loadImages() {
+        for (let i = 1; i <= 41; i++) {
+            let imgElement = document.createElement('img');
+            imgElement.src = `../public/image/vua (${i}).jpg`; // Đường dẫn đến folder chứa ảnh
+            imgElement.alt = `vua (${i})`; // Alt text cho mỗi ảnh
+            imgElement.onclick = function () {
+                openModal(this.src);
+            };
+            imageContainer.appendChild(imgElement); // Thêm ảnh vào div.list-image
+        }
+    }
+
+    // Hàm để mở modal khi click vào ảnh
+    function openModal(src) {
+        modal.style.display = 'block';
+        modalImg.src = src;
+    }
+
+    // Đóng modal khi nhấn nút "x"
+    closeBtn.onclick = function () {
+        modal.style.display = 'none';
+    }
+
+    // Đóng modal khi click ngoài modal ảnh
+    window.onclick = function (event) {
+        if (event.target === modal) {
+            modal.style.display = 'none';
+        }
+    }
+
+    // Gọi hàm để load ảnh
+    loadImages();
+
+</script>
