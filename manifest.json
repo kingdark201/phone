@@ -1,0 +1,17 @@
+{
+    "name": "Smart Phone",
+    "short_name": "smartphone",
+    "description": "Điện thoại dỏm",
+    "start_url": "/index.html",
+    "display": "fullscreen",
+    "background_color": "#ffffff",
+    "theme_color": "#ffffff",
+    "icons": [
+      {
+        "src": "/public/icon_app/gallery.png",
+        "sizes": "128x128",
+        "type": "image/png"
+      }
+    ]
+  }
+  
