@@ -1,27 +1,35 @@
 <style>
-    .allapp{
+    .allapp {
         display: grid;
         grid-template-columns: repeat(4, 1fr);
-        row-gap: 30px;
+        row-gap: 60px;
         column-gap: 10px;
+        height: 80vh;
+        overflow-y: auto;
+        overflow-x: hidden;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+        margin: 0 auto;
     }
 
-    .icon-app{
+    .allapp::-webkit-scrollbar {
+        display: none;
+    }
+
+    .icon-app {
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
     }
 
-    .icon-app>img{
+    .icon-app>img {
         width: 50px;
     }
 
-    .icon-app>span{
+    .icon-app>span {
         font-size: 13px;
     }
-
-
 </style>
 <div class="allapp animate__animated animate__slideInUp">
     <div class="icon-app settings">
@@ -88,7 +96,7 @@
         <img src="../public/icon_app/camera.png" alt="Máy ảnh">
         <span>Máy ảnh</span>
     </div>
-    <div class="icon-app">
+    <div class="icon-app phones">
         <img src="../public/icon_app/mobile.png" alt="Điện thoại">
         <span>Điện thoại</span>
     </div>
@@ -107,49 +115,61 @@
 </div>
 
 <script>
-    $(document).ready(function() {
-        $(".settings").click(function(){
+    $(document).ready(function () {
+
+        if (localStorage.getItem('columnHome')) {
+            changeGridColumn(localStorage.getItem('columnHome'),'.allapp'); 
+        }
+        if (localStorage.getItem('sizeApp')) {
+            changeAppSize(localStorage.getItem('sizeApp'),'.icon-app img');
+        }
+
+        $(".settings").click(function () {
             loadPage('../pages/setting.html');
             changeBackground();
         })
-        $(".facebook").click(function(){
+        $(".facebook").click(function () {
             loadPage('../pages/facebook.html');
             changeBackground();
         })
-        $(".messenger").click(function(){
+        $(".messenger").click(function () {
             loadPage('../pages/messenger.html');
             changeBackground();
         })
-        $(".zalo").click(function(){
+        $(".zalo").click(function () {
             loadPage('../pages/zalo.html');
             changeBackground();
         })
-        $(".tiktok").click(function(){
+        $(".tiktok").click(function () {
             loadPage('../pages/tiktok.html');
             changeBackground();
         })
-        $(".youtube").click(function(){
+        $(".youtube").click(function () {
             loadPage('../pages/youtube.html');
             changeBackground();
         })
-        $(".video").click(function(){
+        $(".video").click(function () {
             loadPage('../pages/video.html');
             changeBackground();
         })
-        $(".image").click(function(){
+        $(".image").click(function () {
             loadPage('../pages/image.html');
             changeBackground();
         })
-        $(".musics").click(function(){
+        $(".musics").click(function () {
             loadPage('../pages/music.html');
             changeBackground();
         })
-        $(".chromes").click(function(){
+        $(".chromes").click(function () {
             loadPage('../pages/chrome.html');
             changeBackground();
         })
-        $(".codes").click(function(){
+        $(".codes").click(function () {
             loadPage('../pages/code.html');
+            changeBackground();
+        })
+        $(".phones").click(function () {
+            loadPage('../pages/phone.html');
             changeBackground();
         })
     })

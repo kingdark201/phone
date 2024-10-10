@@ -1,0 +1,196 @@
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    overflow: hidden;
+}
+
+.select {
+    background-color: transparent;
+    border: 0;
+    outline: none;
+}
+
+.button-dieuhuong {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.button-dieuhuong>button {
+    border: 0;
+    background-color: transparent;
+    font-size: 20px;
+    outline: none;
+}
+
+.button-dieuhuong>button>i {
+    color: rgba(216, 219, 221);
+}
+
+.status_bar {
+    display: flex;
+    justify-content: space-between;
+}
+
+.gio,
+.ngay {
+    margin-left: 10px;
+}
+
+.icon-status {
+    margin-right: 10px;
+}
+
+.icon-status>.pin {
+    font-size: 10px;
+}
+
+.icon-status>i {
+    font-size: 13px;
+}
+
+.status-notify,
+.status-control {
+    background-color: rgba(0, 0, 0, 0.5);
+    height: 100vh;
+    display: none;
+}
+
+.status-notify>p {
+    font-size: 40px;
+    color: white;
+}
+
+.status-notify>p>span {
+    font-size: 15px;
+    color: #fff;
+    line-height: 1px;
+}
+
+.notify {
+    display: flex;
+    align-items: center;
+    background-color: beige;
+    margin: 5px 10px;
+    padding: 0 10px;
+    border-radius: 10px;
+}
+
+.notify>img {
+    width: 40px;
+}
+
+.button-internet {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    margin: 10px;
+}
+
+.button {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    border-radius: 20px;
+    background-color: #000;
+    color: #fff;
+    padding: 10px 0;
+}
+
+.button>p {
+    font-size: 20px;
+    margin: 10px 15px;
+}
+
+.icon {
+    display: flex;
+    flex-direction: column;
+    line-height: 1px;
+}
+
+.icon>span {
+    font-size: 13px;
+}
+
+.control {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    margin: 10px;
+}
+
+.music {
+    height: 170px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+    border-radius: 20px;
+    position: relative;
+}
+
+.ms-control {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 90%;
+    margin: 5px;
+    position: absolute;
+    bottom: 0;
+}
+
+.ms-control>p {
+    font-size: 24px;
+}
+
+.abc {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+}
+
+.abc-a {
+    position: relative;
+    background-color: #fff;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.abc-a>div {
+    position: absolute;
+    bottom: 0px;
+    padding: 12px 100px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 24px;
+    background-color: #000;
+}
+
+.status-more {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    margin: 10px;
+    justify-content: center;
+    align-items: center;
+}
+
+.status-more>div {
+    background-color: #fff;
+    font-size: 30px;
+    text-align: center;
+    padding: 10px 0;
+    border-radius: 20px;
+    padding-bottom: 16px;
+}
+
+.ml-2>h6>span {
+    font-size: 15px;
+    font-weight: 200;
+}

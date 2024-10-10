@@ -7,6 +7,7 @@ function loadPage(page) {
     $('#loadContent').load(page);
 }
 
+
 function savePageHistory(path) {
     let pageHistory = getPageHistory();
     if (pageHistory.length === 0 || pageHistory[pageHistory.length - 1] !== path) {
@@ -21,7 +22,7 @@ function goBack() {
         pageHistory.pop();
         localStorage.setItem('pageHistory', pageHistory.join(';'));
         let previousPage = pageHistory[pageHistory.length - 1];
-        loadPage(previousPage);
+        previousPage!=0&&loadPage(previousPage);
     }
 }
 
@@ -88,5 +89,35 @@ function replaceCharacters2(inputString, alphabet,reversedAlphabet, number, spec
         }
     }
     return resultString;
+}
+
+function changeGridColumn(columns, element) {
+    let size;
+    if(columns==2){
+        size = '240px';
+    }else if(columns==3){
+        size = '80px';
+    }else{
+        size = '20px';
+    }
+    $(element).css({
+        'grid-template-columns': `repeat(${columns}, 1fr)`,
+        'column-gap': size,
+    });
+}
+
+function changeAppSize(size, element) {
+    let width;
+    if (size == 1) {
+        width = '40px';
+    } else if (size == 2) {
+        width = '50px';
+    } else if (size == 3) {
+        width = '60px';
+    }
+
+    $(element).css({
+        'width': width,
+    });
 }
 

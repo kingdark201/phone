@@ -1,7 +1,7 @@
 <style>
     .caidat{
         width: 100%;
-        height: 80vh;
+        height: 90vh;
         overflow-y: auto;
         overflow-x: hidden;
         scrollbar-width: none;
@@ -101,7 +101,7 @@
         </div>
         <span><i class="bi bi-chevron-right"></i></span>
     </div>
-    <div class="box">
+    <div class="box homescreen">
         <div class="box-left">
             <img src="../public/icon_setting/home.png" alt="211">
             <span>Màn hình chính</span>
@@ -195,3 +195,9 @@
         <span><i class="bi bi-chevron-right"></i></span>
     </div>
 </div>
+<script>
+    $(".homescreen").click(function(){   
+        loadPage('pages/settings/homescreen.html')     
+        changeBackground();
+    })
+</script>

@@ -1,0 +1,87 @@
+<style>
+    .homescreen-setting{
+        display: flex;
+        flex-direction: column;
+    }
+    .box-home{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin: 10px;
+    }
+
+    input[type="file"] {
+        display: none;
+    }
+
+    .custom-file-button {
+        display: inline-block;
+        background-color: rgb(55, 205, 50);
+        color: aliceblue;
+        padding: 5px 10px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+    }
+    #column-home{
+        width: 90px;
+        margin-left: 100px;
+        border-radius: 5px;
+        border: 1px solid #e3e3e3;
+    }
+    #size-app{
+        width: 90px;
+        border-radius: 5px;
+        border: 1px solid #e3e3e3;
+    }
+</style>
+<div class="homescreen-setting animate__animated animate__zoomIn">
+    <h5 class="text-center">Màn hình chính</h5>
+    <div class="box-home">
+        <p>Hình nền</p>
+        <div>
+            <label for="imageInput" class="custom-file-button">Chọn ảnh</label>
+            <input type="file" id="imageInput" class="mb-3">    
+        </div>
+        
+    </div>
+    <div class="box-home">
+        <p>Bố cục hiển thị</p>
+        <select id="column-home">
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+        </select>
+    </div>
+    <div class="box-home">
+        <p>Kích thước biểu tượng</p>
+        <select id="size-app" class="text-center">
+            <option value="1">Nhỏ</option>
+            <option value="2" selected>Vừa</option>
+            <option value="3">Lớn</option>
+        </select>
+    </div>
+</div>
+<script>
+    $('#column-home').change(function () {
+        var columnValue = $(this).val();
+        localStorage.setItem('columnHome', columnValue);
+    });
+
+    $('#size-app').change(function () {
+        var sizeValue = $(this).val();
+        localStorage.setItem('sizeApp', sizeValue);
+    });
+
+    $('#imageInput').change(function (e) {
+        var reader = new FileReader();
+
+        reader.onload = function (e) {
+            var imageData = e.target.result;
+            $('body').css('background-image', 'url(' + imageData + ')');
+            localStorage.setItem('backgroundImage', imageData);
+        }
+        reader.readAsDataURL(e.target.files[0]);
+    });
+</script>
